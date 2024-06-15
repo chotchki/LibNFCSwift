@@ -1,0 +1,6 @@
+module libnfc [system] {
+    umbrella header "nfc.h"
+    link "nfc"
+    export *
+}
+

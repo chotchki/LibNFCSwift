@@ -1,2 +1,10 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import Foundation
+import libnfc
+
+public class LibNFCSwift {
+    //private var context: nfc_context
+    public init(){
+
+    }
+}
+
