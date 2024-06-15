@@ -19,5 +19,12 @@ let package = Package(
         .testTarget(
             name: "LibNFCSwiftTests",
             dependencies: ["LibNFCSwift"]),
+        .systemLibrary(
+            name: "libnfc",
+            pkgConfig: "libnfc",
+            providers: [
+                .brew(["libnfc"])
+            ]
+        ),
     ]
 )

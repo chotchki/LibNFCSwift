@@ -1,12 +1,4 @@
-//
-//  Header.h
-//  
-//
-//  Created by Christopher Hotchkiss on 6/15/24.
-//
+#pragma once
 
-#ifndef Header_h
-#define Header_h
-
-
-#endif /* Header_h */
+#include <nfc/nfc-types.h>
+#include <nfc/nfc.h>
