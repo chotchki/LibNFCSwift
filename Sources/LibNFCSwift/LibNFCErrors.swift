@@ -11,4 +11,5 @@ public enum LibNFCError: Error {
     case initFailed
     case listConnectStringFailure
     case deviceConnectFailed
+    case unableToGetName
 }

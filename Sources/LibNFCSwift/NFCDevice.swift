@@ -19,5 +19,12 @@ public class NFCDevice {
         libnfc.nfc_close(device)
     }
     
-    
+    public func getName() throws -> String {
+        let name = libnfc.nfc_device_get_name(device)
+        guard let name = name else {
+            throw LibNFCError.unableToGetName
+        }
+        
+        return String(cString: name)
+    }
 }
