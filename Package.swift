@@ -11,8 +11,8 @@ let package = Package(
             name: "LibNFCSwift",
             targets: ["LibNFCSwift"]),
         .library(
-            name: "LibNFCSwift-async",
-            targets: ["LibNFCSwift-async"]),
+            name: "LibNFCSwiftAsync",
+            targets: ["LibNFCSwiftAsync"]),
     ],
     targets: [
         .target(
@@ -27,8 +27,8 @@ let package = Package(
             dependencies: ["LibNFCSwift"]
             ),
         .testTarget(
-            name: "LibNFCSwift-asyncTests",
-            dependencies: ["LibNFCSwift"]),
+            name: "LibNFCSwiftAsyncTests",
+            dependencies: ["LibNFCSwiftAsync"]),
         .target(
             name: "nfc-swift",
             dependencies: ["libnfc"]
