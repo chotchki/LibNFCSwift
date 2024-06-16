@@ -51,4 +51,14 @@ public class LibNFCSwift {
         
         return connection_strings
     }
+    
+    public func open(conn_desc: String) throws -> NFCDevice {
+        let device = libnfc.nfc_open(context, conn_desc)
+        
+        guard let device = device else {
+            throw LibNFCError.deviceConnectFailed
+        }
+        
+        return NFCDevice(device: device)
+    }
 }
