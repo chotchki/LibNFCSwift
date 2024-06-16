@@ -12,4 +12,7 @@ public enum LibNFCError: Error {
     case listConnectStringFailure
     case deviceConnectFailed
     case unableToGetName
+    case unableToGetDeviceInfo
+    case unableToGetTargets
+    case tagPrintError
 }
