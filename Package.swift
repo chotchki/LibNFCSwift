@@ -11,21 +11,28 @@ let package = Package(
             name: "LibNFCSwift",
             targets: ["LibNFCSwift"]),
         .library(
-            name: "nfc-swift",
-            targets: ["nfc-swift"]),
+            name: "LibNFCSwift-async",
+            targets: ["LibNFCSwift-async"]),
     ],
     targets: [
         .target(
             name: "LibNFCSwift",
             dependencies: ["libnfc", "nfc-swift"]
             ),
+        .testTarget(
+            name: "LibNFCSwiftTests",
+            dependencies: ["LibNFCSwift"]),
+        .target(
+            name: "LibNFCSwift-async",
+            dependencies: ["LibNFCSwift"]
+            ),
+        .testTarget(
+            name: "LibNFCSwift-asyncTests",
+            dependencies: ["LibNFCSwift"]),
         .target(
             name: "nfc-swift",
             dependencies: ["libnfc"]
             ),
-        .testTarget(
-            name: "LibNFCSwiftTests",
-            dependencies: ["LibNFCSwift"]),
         .systemLibrary(
             name: "libnfc",
             pkgConfig: "libnfc",

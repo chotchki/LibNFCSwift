@@ -2,7 +2,7 @@ import Foundation
 import libnfc
 import nfc_swift
 
-public class LibNFCSwift {
+public class NFCDriver {
     private let max_device_count = 16 //From the examples
     
     private var context: OpaquePointer

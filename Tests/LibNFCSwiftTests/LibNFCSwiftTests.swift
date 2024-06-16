@@ -7,7 +7,7 @@ final class LibNFCSwiftTests: XCTestCase {
     let log = Logger()
     
     func testListDevices() throws {
-        let wrapper = try? LibNFCSwift();
+        let wrapper = try? NFCDriver();
         
         let connection_strings = try wrapper?.list_devices();
         
@@ -24,7 +24,7 @@ final class LibNFCSwiftTests: XCTestCase {
     }
     
     func testGetName() throws {
-        let wrapper = try? LibNFCSwift();
+        let wrapper = try? NFCDriver();
         
         let connection_strings = try wrapper?.list_devices();
         
@@ -50,7 +50,7 @@ final class LibNFCSwiftTests: XCTestCase {
     }
     
     func testGetInfo() throws {
-        let wrapper = try? LibNFCSwift();
+        let wrapper = try? NFCDriver();
         
         let connection_strings = try wrapper?.list_devices();
         
@@ -76,7 +76,7 @@ final class LibNFCSwiftTests: XCTestCase {
     }
     
     func testGetTagInfo() throws {
-        let wrapper = try? LibNFCSwift();
+        let wrapper = try? NFCDriver();
         
         let connection_strings = try wrapper?.list_devices();
         
