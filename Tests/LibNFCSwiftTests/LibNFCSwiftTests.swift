@@ -2,11 +2,20 @@ import XCTest
 @testable import LibNFCSwift
 
 final class LibNFCSwiftTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+    func testListDevices() throws {
+        let wrapper = try? LibNFCSwift();
+        
+        let connection_strings = try wrapper?.list_devices();
+        
+        guard let connection_strings = connection_strings else {
+            assertionFailure("Unable to check for list of devices");
+            return;
+        }
+        
+        print("Found count \(connection_strings.count) strings")
+        
+        for con in connection_strings {
+            print("Connection String: \(con)")
+        }
     }
 }
