@@ -23,3 +23,4 @@ You will also need to reconfigure the permissions on your XCode project:
 1. In the App Sandbox you'll need to enable "USB" access.
 2. In the Hardened Runtime you'll have to disable "Library Validation". This is because Homebrew's installation will be differently signed than yours.
 
+I do get warnings when building under MacCatalyst about a mismatch with macOS but the library still seems to function when running on Apple Silicon.
