@@ -1,0 +1,6 @@
+module libnfc-swift [system] {
+    umbrella header "nfc_swift.h"
+    link "nfc_swift"
+    export *
+}
+

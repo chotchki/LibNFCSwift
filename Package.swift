@@ -10,10 +10,17 @@ let package = Package(
         .library(
             name: "LibNFCSwift",
             targets: ["LibNFCSwift"]),
+        .library(
+            name: "nfc-swift",
+            targets: ["nfc-swift"]),
     ],
     targets: [
         .target(
             name: "LibNFCSwift",
+            dependencies: ["libnfc", "nfc-swift"]
+            ),
+        .target(
+            name: "nfc-swift",
             dependencies: ["libnfc"]
             ),
         .testTarget(
