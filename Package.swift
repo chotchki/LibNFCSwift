@@ -23,7 +23,7 @@ let package = Package(
             name: "LibNFCSwiftTests",
             dependencies: ["LibNFCSwift"]),
         .target(
-            name: "LibNFCSwift-async",
+            name: "LibNFCSwiftAsync",
             dependencies: ["LibNFCSwift"]
             ),
         .testTarget(
