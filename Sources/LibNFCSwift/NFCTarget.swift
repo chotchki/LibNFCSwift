@@ -42,4 +42,16 @@ public class NFCTarget {
         
         return info
     }
+    
+    public func getUID() -> [UInt8] {
+        var array: [UInt8] {
+            withUnsafeBytes(of: target.nti.nai.abtUid) { buf in
+                [UInt8](buf)
+            }
+        }
+        
+        let trimmed = Array(array[0..<target.nti.nai.szUidLen])
+        
+        return trimmed
+    }
 }

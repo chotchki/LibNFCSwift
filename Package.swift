@@ -17,14 +17,20 @@ let package = Package(
     targets: [
         .target(
             name: "LibNFCSwift",
-            dependencies: ["libnfc", "nfc-swift"]
+            dependencies: ["libnfc", "nfc-swift"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+              ]
             ),
         .testTarget(
             name: "LibNFCSwiftTests",
             dependencies: ["LibNFCSwift"]),
         .target(
             name: "LibNFCSwiftAsync",
-            dependencies: ["LibNFCSwift"]
+            dependencies: ["LibNFCSwift"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+              ]
             ),
         .testTarget(
             name: "LibNFCSwiftAsyncTests",

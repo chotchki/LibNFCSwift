@@ -14,4 +14,15 @@ public class NFCDeviceAsync {
     public init(device: NFCDevice) {
         self.device = device
     }
+    
+    public func listPassiveTargets(modulation: NFCModulation) async throws -> [NFCTarget] {
+        return try await withCheckedThrowingContinuation({ continuation in
+            do {
+                let targets = try self.device.listPassiveTargets(modulation: modulation)
+                continuation.resume(returning: targets)
+            } catch {
+                continuation.resume(throwing: error)
+            }
+        })
+    }
 }

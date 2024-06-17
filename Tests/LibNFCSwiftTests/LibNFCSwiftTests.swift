@@ -101,6 +101,8 @@ final class LibNFCSwiftTests: XCTestCase {
         for t in targets {
             let info = try? t.getInfo()
             log.debug("Target Info \(info!)")
+            let uid = try! t.getUID()
+            print("\(uid)")
         }
     }
 }
