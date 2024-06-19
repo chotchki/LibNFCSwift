@@ -8,7 +8,7 @@
 import Foundation
 import libnfc
 
-public class NFCModulation {
+public struct NFCModulation: Sendable {
     public var modulation: nfc_modulation
     
     public init(){

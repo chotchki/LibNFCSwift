@@ -9,7 +9,7 @@ import Foundation
 import OSLog
 import XCTest
 @testable import LibNFCSwiftAsync
-
+/*
 @MainActor
 final class LibNFCSwiftAsyncTests: XCTestCase {
     let log = Logger()
@@ -31,3 +31,4 @@ final class LibNFCSwiftAsyncTests: XCTestCase {
         }
     }
 }
+*/

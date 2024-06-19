@@ -15,4 +15,6 @@ public enum LibNFCError: Error {
     case unableToGetDeviceInfo
     case unableToGetTargets
     case tagPrintError
+    case pollTimeout
+    case cancelled
 }

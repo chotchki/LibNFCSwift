@@ -8,12 +8,14 @@
 import Foundation
 import libnfc
 
+@LibNFCActor
 public class NFCDevice {
     private let MAX_TARGETS = 16 //Matches the examples
     
+    @LibNFCActor
     private var device: OpaquePointer
     
-    public init(device: OpaquePointer) {
+    public init(device: OpaquePointer) async {
         self.device = device
     }
     

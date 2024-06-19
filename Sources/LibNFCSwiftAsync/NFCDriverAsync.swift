@@ -1,6 +1,6 @@
 import Foundation
 import LibNFCSwift
-
+/*
 public class NFCDriverAsync {
     private var driver: NFCDriver
     
@@ -9,24 +9,12 @@ public class NFCDriverAsync {
     }
     
     public func list_devices() async throws -> [String] {
-        return try await withCheckedThrowingContinuation({ continuation in
-            do {
-                let devices = try self.driver.list_devices()
-                continuation.resume(returning: devices)
-            } catch {
-                continuation.resume(throwing: error)
-            }
-        })
+        return try await self.driver.list_devices()
     }
     
     public func open(conn_desc: String) async throws -> NFCDeviceAsync {
-        return try await withCheckedThrowingContinuation({ continuation in
-            do {
-                let device = try self.driver.open(conn_desc: conn_desc)
-                continuation.resume(returning: NFCDeviceAsync(device: device))
-            } catch {
-                continuation.resume(throwing: error)
-            }
-        })
+        let device = try await self.driver.open(conn_desc: conn_desc)
+        return NFCDeviceAsync(device: device)
     }
 }
+*/

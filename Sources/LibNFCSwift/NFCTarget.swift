@@ -8,14 +8,14 @@
 import Foundation
 import libnfc
 
-public class NFCTarget {
+public struct NFCTarget: Sendable {
     private var target: nfc_target
     
     public init(target: nfc_target) {
         self.target = target
     }
     
-    public func getInfo() throws -> String {
+    public mutating func getInfo() throws -> String {
         var raw_buffer_ptr: UnsafeMutablePointer<CChar>? = nil
         
         let size = libnfc.str_nfc_target(&raw_buffer_ptr, &target, true)
