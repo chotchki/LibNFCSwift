@@ -62,22 +62,6 @@ public actor LibNFCActor: GlobalActor {
         return connection_strings
     }
     
-    /*public func open(conn_desc: String) async throws -> NFCDevice {
-        try create_context()
-        
-        guard let ctx = context else {
-            throw LibNFCError.initFailed
-        }
-        
-        let device = libnfc.nfc_open(ctx, conn_desc)
-        
-        guard let device = device else {
-            throw LibNFCError.deviceConnectFailed
-        }
-        
-        return await NFCDevice(device: device)
-    }*/
-    
     public func findFirstTag(modulation: NFCModulation, clock: ContinuousClock, timeout: Int) async throws -> [UInt8] {
         let end = clock.now.advanced(by: .seconds(timeout))
         return try await withCheckedThrowingContinuation({ continuation in
