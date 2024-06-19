@@ -10,9 +10,6 @@ let package = Package(
         .library(
             name: "LibNFCSwift",
             targets: ["LibNFCSwift"]),
-        .library(
-            name: "LibNFCSwiftAsync",
-            targets: ["LibNFCSwiftAsync"]),
     ],
     targets: [
         .target(
@@ -25,16 +22,6 @@ let package = Package(
         .testTarget(
             name: "LibNFCSwiftTests",
             dependencies: ["LibNFCSwift"]),
-        .target(
-            name: "LibNFCSwiftAsync",
-            dependencies: ["LibNFCSwift"],
-            swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
-              ]
-            ),
-        .testTarget(
-            name: "LibNFCSwiftAsyncTests",
-            dependencies: ["LibNFCSwiftAsync"]),
         .target(
             name: "nfc-swift",
             dependencies: ["libnfc"]
