@@ -2,6 +2,9 @@ import Foundation
 import libnfc
 import nfc_swift
 
+@available(iOS 16.0, *)
+@available(macOS 13.0, *)
+@available(macCatalyst 16.0, *)
 @globalActor
 public actor LibNFCActor: GlobalActor {
     public static let shared = LibNFCActor()
