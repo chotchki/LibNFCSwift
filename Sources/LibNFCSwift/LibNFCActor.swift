@@ -12,14 +12,18 @@ public actor LibNFCActor: GlobalActor {
     private let max_device_count = 16 //From the examples
     private let max_targets = 16
     private var context: OpaquePointer?
+    private var device: OpaquePointer?
         
     public init() {}
         
     deinit {
-        guard let context = context else {
-            return
+        if let device = device {
+            libnfc.nfc_close(device)
         }
-        libnfc.nfc_exit(context)
+        
+        if  let context = context {
+            libnfc.nfc_exit(context)
+        }
     }
         
     private func create_context() throws {
@@ -29,6 +33,18 @@ public actor LibNFCActor: GlobalActor {
         
         if context == nil {
             throw LibNFCError.initFailed
+        }
+    }
+    
+    private func open_device() throws {
+        try create_context()
+        
+        if device == nil {
+            device = libnfc.nfc_open(context!, nil)
+        }
+        
+        if device == nil {
+            throw LibNFCError.deviceConnectFailed
         }
     }
         
@@ -69,13 +85,7 @@ public actor LibNFCActor: GlobalActor {
         let end = clock.now.advanced(by: .seconds(timeout))
         return try await withCheckedThrowingContinuation({ continuation in
             do {
-                try create_context()
-                
-                guard let ctx = context else {
-                    throw LibNFCError.initFailed
-                }
-                
-                let device = libnfc.nfc_open(ctx, nil)
+                try open_device()
                 
                 guard let device = device else {
                     throw LibNFCError.deviceConnectFailed
@@ -83,7 +93,6 @@ public actor LibNFCActor: GlobalActor {
                 
                 while true {
                     if Task.isCancelled {
-                        libnfc.nfc_close(device)
                         continuation.resume(throwing: LibNFCError.cancelled)
                         break
                     }
@@ -116,4 +125,6 @@ public actor LibNFCActor: GlobalActor {
             }
         })
     }
+    
+    
 }
